@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高校数学解説サイト</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        h2 {
+            color: #2e7d32;
+            border-bottom: 2px solid #a5d6a7;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h3 {
+            color: #4CAF50;
+            margin-top: 25px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .equation {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-left: 5px solid #4CAF50;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .equation code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #333;
+            color: white;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* 目次へのスクロール */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>高校数学解説サイト</h1>
+        <p>数学の基礎から応用まで、わかりやすく解説します</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#math1">数学I</a></li>
+            <li><a href="#matha">数学A</a></li>
+            <li><a href="#math2">数学II</a></li>
+            <li><a href="#mathb">数学B</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="math1">
+            <h2>数学I</h2>
+            
+            <h3>数と式</h3>
+            <p>実数、無理数、複素数など数の概念と、式の展開、因数分解、方程式、不等式について学びます。</p>
+            <div class="equation">
+                <code>
+                (a+b)^2 = a^2 + 2ab + b^2
+                x^2 - y^2 = (x+y)(x-y)
+                </code>
+            </div>
+            
+            <h3>二次関数</h3>
+            <p>二次関数のグラフ（放物線）、頂点、軸、最大値・最小値の求め方、二次方程式との関係を理解します。</p>
+            <div class="equation">
+                <code>
+                y = ax^2 + bx + c  (一般形)
+                y = a(x-p)^2 + q  (頂点形)
+                頂点: (p, q)
+                </code>
+            </div>
+            <p>例えば、y = x<sup>2</sup> - 4x + 3 のグラフは次のようになります。
+            </p>
+            
+            <h3>図形と計量</h3>
+            <p>三角比（sin, cos, tan）、正弦定理、余弦定理を用いて図形の辺の長さや角度を求めます。</p>
+            <div class="equation">
+                <code>
+                正弦定理: a/sinA = b/sinB = c/sinC = 2R
+                余弦定理: a^2 = b^2 + c^2 - 2bc cosA
+                </code>
+            </div>
+            
+            <h3>データの分析</h3>
+            <p>データの散らばり具合を表す指標（平均値、中央値、最頻値、分散、標準偏差）や、相関関係について学びます。</p>
+            <div class="equation">
+                <code>
+                分散: s^2 = (1/n) * Σ(xi - x̄)^2
+                標準偏差: s = √s^2
+                </code>
+            </div>
+        </section>
+
+        <section id="matha">
+            <h2>数学A</h2>
+            
+            <h3>場合の数と確率</h3>
+            <p>順列、組み合わせ、重複順列、重複組み合わせといった場合の数の数え方と、それらを用いた確率の計算方法を学びます。</p>
+            <div class="equation">
+                <code>
+                nPr = n! / (n-r)!  (順列)
+                nCr = n! / (r! * (n-r)!)  (組み合わせ)
+                </code>
+            </div>
+            
+            <h3>図形の性質</h3>
+            <p>三角形の性質（外心、内心、重心、垂心）、円の性質（接線、弦、方べきの定理）などを学びます。</p>
+            <div class="equation">
+                <code>
+                メネラウスの定理, チェバの定理
+                方べきの定理: PA・PB = PC・PD (交わる2つの弦)
+                </code>
+            </div>
+            
+            <h3>整数の性質</h3>
+            <p>約数と倍数、素数、最大公約数、最小公倍数、ユークリッドの互除法、合同式について学びます。</p>
+            <div class="equation">
+                <code>
+                a ≡ b (mod m)  (合同式)
+                </code>
+            </div>
+        </section>
+
+        <section id="math2">
+            <h2>数学II</h2>
+            
+            <h3>様々な式</h3>
+            <p>分数式、恒等式、等式・不等式の証明、高次方程式、複素数と方程式について学びます。</p>
+            <div class="equation">
+                <code>
+                複素数: z = a + bi (i は虚数単位)
+                </code>
+            </div>
+            
+            <h3>図形と方程式</h3>
+            <p>点と直線、円の方程式、軌跡と領域について学びます。</p>
+            <div class="equation">
+                <code>
+                円の方程式: (x-a)^2 + (y-b)^2 = r^2
+                点と直線の距離: |Ax0 + By0 + C| / √(A^2 + B^2)
+                </code>
+            </div>
+            
+            <h3>指数関数・対数関数</h3>
+            <p>指数法則、指数関数、対数関数とその性質、グラフについて学びます。</p>
+            <div class="equation">
+                <code>
+                log_a M = p  ⇔  M = a^p
+                log_a (MN) = log_a M + log_a N
+                </code>
+            </div>
+            
+            <h3>微分法と積分法</h3>
+            <p>導関数、接線の方程式、関数の増減、極値、定積分、不定積分、面積の計算について学びます。</p>
+            <div class="equation">
+                <code>
+                f'(x) = lim(h→0) {f(x+h) - f(x)} / h
+                ∫ x^n dx = (1/(n+1)) * x^(n+1) + C
+                </code>
+            </div>
+        </section>
+
+        <section id="mathb">
+            <h2>数学B</h2>
+            
+            <h3>数列</h3>
+            <p>等差数列、等比数列、漸化式、数学的帰納法、Σ（シグマ）記号による和の計算について学びます。</p>
+            <div class="equation">
+                <code>
+                等差数列の一般項: an = a1 + (n-1)d
+                等比数列の一般項: an = a1 * r^(n-1)
+                </code>
+            </div>
+            
+            <h3>ベクトル</h3>
+            <p>ベクトルの成分表示、内積、外積、位置ベクトル、直線や平面の方程式への応用を学びます。</p>
+            <div class="equation">
+                <code>
+                ベクトルa = (ax, ay), ベクトルb = (bx, by)
+                内積: a・b = |a||b|cosθ = ax*bx + ay*by
+                </code>
+            </div>
+            
+            <h3>確率分布と統計的な推測</h3>
+            <p>二項分布、正規分布などの確率分布、期待値、分散、標本調査、推定、仮説検定の基礎を学びます。</p>
+            <div class="equation">
+                <code>
+                期待値 E(X) = Σ xi * P(X=xi)
+                </code>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 高校数学解説サイト. All rights reserved. | <a href="#top">ページのトップへ</a></p>
+    </footer>
+</body>
+</html>
