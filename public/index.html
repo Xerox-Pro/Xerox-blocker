@@ -3,126 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高校数学解説サイト</title>
+    <title>高校数学究極解説サイト (大学受験～東大レベル対応)</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'BIZ UDPGothic', 'メイリオ', Meiryo, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
+            background-color: #f0f2f5;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.8;
+            word-break: break-word;
         }
         header {
-            background-color: #4CAF50;
+            background-color: #2c3e50;
             color: white;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.1em;
+            margin-top: 10px;
         }
         nav {
-            background-color: #333;
+            background-color: #34495e;
             color: white;
-            padding: 0.5rem 0;
+            padding: 0.8rem 0;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
+            flex-wrap: wrap; /* 小さい画面で折り返す */
             justify-content: center;
         }
         nav ul li {
-            margin: 0 15px;
+            margin: 0 12px;
+            position: relative;
         }
         nav ul li a {
             color: white;
             text-decoration: none;
-            padding: 8px 15px;
+            padding: 10px 18px;
             display: block;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+            font-weight: bold;
         }
         nav ul li a:hover {
-            background-color: #575757;
-            border-radius: 4px;
+            background-color: #5d6d7e;
+            transform: translateY(-2px);
         }
         .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 20px;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 30px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
         section {
-            margin-bottom: 30px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            margin-bottom: 40px;
+            border-bottom: 1px dashed #e0e0e0;
+            padding-bottom: 30px;
         }
         section:last-of-type {
             border-bottom: none;
             padding-bottom: 0;
         }
         h2 {
-            color: #2e7d32;
-            border-bottom: 2px solid #a5d6a7;
-            padding-bottom: 10px;
+            color: #2980b9;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 12px;
             margin-top: 0;
+            font-size: 2.2em;
         }
         h3 {
-            color: #4CAF50;
+            color: #e67e22;
+            margin-top: 35px;
+            font-size: 1.6em;
+            border-left: 5px solid #f39c12;
+            padding-left: 10px;
+        }
+        h4 {
+            color: #27ae60;
             margin-top: 25px;
+            font-size: 1.3em;
+            border-bottom: 1px dotted #2ecc71;
+            padding-bottom: 5px;
         }
         p {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: justify;
         }
-        .equation {
-            background-color: #e8f5e9;
-            padding: 15px;
-            border-left: 5px solid #4CAF50;
-            margin: 15px 0;
+        .equation, .proof-box, .example-box, .point-box {
+            background-color: #ecf0f1;
+            padding: 18px;
+            border-left: 6px solid #3498db;
+            margin: 20px 0;
             overflow-x: auto;
+            border-radius: 6px;
         }
-        .equation code {
+        .equation code, .proof-box code, .example-box code, .point-box code {
             font-family: 'Consolas', 'Monaco', monospace;
             display: block;
             white-space: pre-wrap;
             word-wrap: break-word;
+            font-size: 1.05em;
+            color: #2c3e50;
+        }
+        .proof-box {
+            border-color: #e67e22;
+            background-color: #fcf1eb;
+        }
+        .example-box {
+            border-color: #27ae60;
+            background-color: #e9f5ee;
+        }
+        .point-box {
+            border-color: #f39c12;
+            background-color: #fef8eb;
+            font-weight: bold;
+            color: #c0392b;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
         }
         footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            background-color: #333;
+            padding: 25px;
+            margin-top: 50px;
+            background-color: #2c3e50;
             color: white;
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
         a {
-            color: #4CAF50;
+            color: #3498db;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
         a:hover {
+            color: #2980b9;
             text-decoration: underline;
         }
         /* 目次へのスクロール */
         html {
             scroll-behavior: smooth;
         }
+        .math-symbol {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>高校数学解説サイト</h1>
-        <p>数学の基礎から応用まで、わかりやすく解説します</p>
+        <h1>高校数学究極解説サイト</h1>
+        <p>大学受験の基礎から東大レベルの応用まで、深く掘り下げて解説</p>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#math1">数学I</a></li>
-            <li><a href="#matha">数学A</a></li>
-            <li><a href="#math2">数学II</a></li>
-            <li><a href="#mathb">数学B</a></li>
+            <li><a href="#math1">数I</a></li>
+            <li><a href="#matha">数A</a></li>
+            <li><a href="#math2">数II</a></li>
+            <li><a href="#mathb">数B</a></li>
+            <li><a href="#math3">数III</a></li>
+            <li><a href="#advanced">応用・思考法</a></li>
         </ul>
     </nav>
 
@@ -131,41 +201,132 @@
             <h2>数学I</h2>
             
             <h3>数と式</h3>
-            <p>実数、無理数、複素数など数の概念と、式の展開、因数分解、方程式、不等式について学びます。</p>
-            <div class="equation">
+            <h4>実数と数直線</h4>
+            <p>有理数と無理数。無理数の定義と性質（<span class="math-symbol">√2</span>が無理数であることの証明）。絶対値の定義と幾何学的意味。<span class="math-symbol">|x-a|</span>が数直線上の<span class="math-symbol">x</span>と<span class="math-symbol">a</span>の距離を表すことを理解する。</p>
+            <div class="proof-box">
                 <code>
-                (a+b)^2 = a^2 + 2ab + b^2
-                x^2 - y^2 = (x+y)(x-y)
+                [√2が無理数であることの証明]
+                √2が有理数と仮定すると、√2 = p/q (p, qは互いに素な自然数) と書ける。
+                2 = p^2/q^2 より、p^2 = 2q^2。
+                p^2が偶数なので、pも偶数。p = 2k (kは自然数) とおく。
+                (2k)^2 = 2q^2 より、4k^2 = 2q^2、すなわち 2k^2 = q^2。
+                q^2が偶数なので、qも偶数。
+                これはpとqが互いに素であるという仮定に矛盾する。
+                したがって、√2は無理数である。
                 </code>
             </div>
             
+            <h4>式の展開と因数分解</h4>
+            <p>3次式の展開・因数分解公式、対称式・交代式、降べきの順整理、たすき掛けを完璧にする。</p>
+            <div class="equation">
+                <code>
+                (a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3
+                a^3 + b^3 = (a+b)(a^2 - ab + b^2)
+                a^3 - b^3 = (a-b)(a^2 + ab + b^2)
+                </code>
+            </div>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                複雑な因数分解では、まず「共通因数でくくる」「最低次の文字で整理する」を試す。
+                多変数で次数が同じ場合は、どれか一つの文字で整理する。
+                </code>
+            </div>
+
+            <h4>不等式と絶対値</h4>
+            <p>一次不等式、二次不等式、連立不等式。絶対値を含む方程式・不等式は場合分けとグラフで解く。</p>
+            <div class="example-box">
+                <code>
+                [例] 不等式 |x-2| < 3 を解け。
+                定義により -3 < x-2 < 3
+                すべての辺に 2 を加えると -1 < x < 5
+                (グラフ的に: 2からの距離が3未満の点)
+                </code>
+            </div>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                絶対値の問題は、まず絶対値記号の中身が正か負かで場合分けを考える。
+                特に、|A| > B の形は A > B または A < -B と同値。
+                |A| < B の形は -B < A < B と同値。
+                </code>
+            </div>
+
             <h3>二次関数</h3>
-            <p>二次関数のグラフ（放物線）、頂点、軸、最大値・最小値の求め方、二次方程式との関係を理解します。</p>
-            <div class="equation">
+            <h4>グラフと平行移動</h4>
+            <p><span class="math-symbol">y = ax^2 + bx + c</span> を平方完成し、頂点座標<span class="math-symbol">(-b/2a, (4ac-b^2)/4a)</span>を導出。グラフの軸と頂点の位置、下に凸・上に凸を把握し、平行移動の原理を理解する。</p>
+            
+            <h4>最大・最小問題</h4>
+            <p>定義域がある場合の二次関数の最大・最小は、軸の位置と定義域の関係で場合分けが必要となる。軸が動く場合（パラメータを含む場合）は特に注意。図示して考えることが重要。</p>
+            <div class="example-box">
                 <code>
-                y = ax^2 + bx + c  (一般形)
-                y = a(x-p)^2 + q  (頂点形)
-                頂点: (p, q)
+                [例] y = x^2 - 2ax + a+2 (0≦x≦3) の最小値を求めよ。
+                y = (x-a)^2 - a^2 + a + 2
+                軸x=a の位置によって場合分け:
+                1) a < 0 のとき: x=0 で最小値 a+2
+                2) 0 ≦ a ≦ 3 のとき: x=a で最小値 -a^2 + a + 2
+                3) a > 3 のとき: x=3 で最小値 9 - 6a + a + 2 = -5a + 11
                 </code>
             </div>
-            <p>例えば、y = x<sup>2</sup> - 4x + 3 のグラフは次のようになります。
-            </p>
-            
+
+            <h4>二次方程式の解の配置</h4>
+            <p>二次方程式 <span class="math-symbol">ax^2+bx+c=0</span> の解が特定の範囲にある条件。<span class="math-symbol">f(x)=ax^2+bx+c</span> のグラフを考え、判別式<span class="math-symbol">D</span>、軸の位置、区間の端点での<span class="math-symbol">f(x)</span>の符号の3つの条件で絞り込む。特に東大レベルでは、これらの条件を漏れなく、かつ重複なく設定する厳密さが問われる。</p>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                解の配置問題は「グラフを描く」「軸・判別式・端点の符号」の3点セットで考える。
+                特に、異なる2つの実数解など、条件の厳密さを常に意識する。
+                </code>
+            </div>
+
             <h3>図形と計量</h3>
-            <p>三角比（sin, cos, tan）、正弦定理、余弦定理を用いて図形の辺の長さや角度を求めます。</p>
+            <h4>三角比と相互関係</h4>
+            <p><span class="math-symbol">sinθ, cosθ, tanθ</span>の定義と相互関係（<span class="math-symbol">sin^2θ+cos^2θ=1</span>など）。単位円による定義で鈍角の三角比も理解する。</p>
+            
+            <h4>正弦定理と余弦定理</h4>
+            <p>三角形の辺と角の関係を表す重要な定理。三角形の面積公式<span class="math-symbol">S = (1/2)ab sinC</span>も。</p>
             <div class="equation">
                 <code>
-                正弦定理: a/sinA = b/sinB = c/sinC = 2R
+                正弦定理: a/sinA = b/sinB = c/sinC = 2R (Rは外接円の半径)
                 余弦定理: a^2 = b^2 + c^2 - 2bc cosA
                 </code>
             </div>
-            
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                正弦定理は「対辺と対角」の関係が分かっているときに使う。
+                余弦定理は「2辺と挟む角」または「3辺」が分かっているときに使う。
+                </code>
+            </div>
+
+            <h4>空間図形と三角比</h4>
+            <p>空間内の辺の長さ、角度、体積を求める際に三角比を応用する。特に、正四面体や立方体など対称性の高い図形では、適切に断面を切り出して平面図形として考える。</p>
+            <div class="example-box">
+                <code>
+                [例] 一辺の長さがaの正四面体の体積を求めよ。
+                高さhを求めるために、頂点から底面への垂線の足を考える。
+                底面の重心が垂線の足になる。
+                底面は一辺aの正三角形なので、高さは (√3/2)a。重心までの距離は (√3/2)a * (2/3) = a/√3。
+                三平方の定理より h^2 + (a/√3)^2 = a^2
+                h^2 = a^2 - a^2/3 = 2a^2/3  → h = (√6/3)a
+                体積 V = (1/3) * (底面積) * h = (1/3) * (√3/4)a^2 * (√6/3)a = (√2/12)a^3
+                </code>
+            </div>
+
             <h3>データの分析</h3>
-            <p>データの散らばり具合を表す指標（平均値、中央値、最頻値、分散、標準偏差）や、相関関係について学びます。</p>
+            <h4>散布図と相関係数</h4>
+            <p>分散、標準偏差の定義。共分散と相関係数<span class="math-symbol">r</span>の定義と解釈。相関係数は<span class="math-symbol">-1 ≦ r ≦ 1</span>。データの特徴を数値とグラフの両面から捉える。</p>
             <div class="equation">
                 <code>
-                分散: s^2 = (1/n) * Σ(xi - x̄)^2
-                標準偏差: s = √s^2
+                共分散: Sxy = (1/n) Σ(xi - x̄)(yi - ȳ)
+                相関係数: r = Sxy / (Sx * Sy) (Sx, Syはx, yの標準偏差)
+                </code>
+            </div>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                データの分析は単なる計算だけでなく、その数値が何を意味するのかを理解することが重要。
+                外れ値が与える影響なども考察できると良い。
                 </code>
             </div>
         </section>
@@ -174,104 +335,287 @@
             <h2>数学A</h2>
             
             <h3>場合の数と確率</h3>
-            <p>順列、組み合わせ、重複順列、重複組み合わせといった場合の数の数え方と、それらを用いた確率の計算方法を学びます。</p>
+            <h4>順列と組み合わせ</h4>
+            <p>順列<span class="math-symbol">nPr</span>、組み合わせ<span class="math-symbol">nCr</span>、重複順列、重複組み合わせ。区別できるものとできないものの扱いの違い。</p>
             <div class="equation">
                 <code>
-                nPr = n! / (n-r)!  (順列)
-                nCr = n! / (r! * (n-r)!)  (組み合わせ)
+                重複組み合わせ: nHr = (n+r-1)Cr
                 </code>
             </div>
             
+            <h4>確率の基本法則</h4>
+            <p>和の法則、積の法則、余事象の確率、独立試行の確率、反復試行の確率。</p>
+            <div class="example-box">
+                <code>
+                [例] 1個のサイコロを5回投げて、1の目がちょうど2回出る確率。
+                反復試行の確率: (5C2) * (1/6)^2 * (5/6)^3
+                </code>
+            </div>
+
+            <h4>条件付き確率とベイズの定理</h4>
+            <p><span class="math-symbol">P(A|B) = P(A∩B) / P(B)</span>。事象<span class="math-symbol">B</span>が起こったという条件下での事象<span class="math-symbol">A</span>の確率。ベイズの定理は原因の確率を推定する際に用いる。</p>
+            <div class="equation">
+                <code>
+                P(B|A) = P(A|B) * P(B) / P(A)
+                </code>
+            </div>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                「〜のとき、〜である確率」という文言があれば条件付き確率。
+                樹形図や表を使って視覚的に整理すると間違いにくい。
+                </code>
+            </div>
+
             <h3>図形の性質</h3>
-            <p>三角形の性質（外心、内心、重心、垂心）、円の性質（接線、弦、方べきの定理）などを学びます。</p>
+            <h4>三角形の五心</h4>
+            <p>外心、内心、重心、垂心、傍心。それぞれの定義と性質、位置ベクトルの利用。特に重心は中線の交点であり、各中線を<span class="math-symbol">2:1</span>に内分すること。</p>
             <div class="equation">
                 <code>
-                メネラウスの定理, チェバの定理
-                方べきの定理: PA・PB = PC・PD (交わる2つの弦)
+                重心Gの位置ベクトル: G = (A+B+C)/3
                 </code>
             </div>
             
+            <h4>メネラウスの定理・チェバの定理</h4>
+            <p>平面図形の問題で、共線条件（3点が一直線上にある）や共点条件（3直線が1点で交わる）を示す際に有効。適用する辺と頂点の順序に注意。</p>
+            <div class="example-box">
+                <code>
+                [例: メネラウスの定理]
+                △ABCと直線Lが、辺AB, BC, CAまたはその延長とそれぞれ点P, Q, Rで交わる。
+                このとき、(AP/PB) * (BQ/QC) * (CR/RA) = 1 が成り立つ。
+                </code>
+            </div>
+
+            <h4>円の性質</h4>
+            <p>方べきの定理、接弦定理、円に内接する四角形の性質。これらを総合的に用いて辺の長さや角度を求める。</p>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                図形問題は、まず与えられた条件を図に書き込む。
+                補助線を引く練習も重要。相似な図形や円周角など、隠れた条件を見つける。
+                </code>
+            </div>
+
             <h3>整数の性質</h3>
-            <p>約数と倍数、素数、最大公約数、最小公倍数、ユークリッドの互除法、合同式について学びます。</p>
+            <h4>約数と倍数</h4>
+            <p>素数、合成数、最大公約数、最小公倍数。ユークリッドの互除法による最大公約数の効率的な求め方。</p>
             <div class="equation">
                 <code>
-                a ≡ b (mod m)  (合同式)
+                a = bq + r (0≦r<b) のとき、gcd(a,b) = gcd(b,r)
+                </code>
+            </div>
+            
+            <h4>合同式</h4>
+            <p><span class="math-symbol">a ≡ b (mod m)</span> の意味と性質（和、差、積、冪乗の性質）。余りに着目する際に非常に強力なツール。</p>
+            <div class="example-box">
+                <code>
+                [例] 3^100 を 7 で割った余りを求めよ。
+                3^1 ≡ 3 (mod 7)
+                3^2 ≡ 9 ≡ 2 (mod 7)
+                3^3 ≡ 3*2 ≡ 6 ≡ -1 (mod 7)
+                3^100 = (3^3)^33 * 3^1 ≡ (-1)^33 * 3 ≡ -3 ≡ 4 (mod 7)
+                よって余りは 4。
+                </code>
+            </div>
+
+            <h4>不定方程式</h4>
+            <p>一次不定方程式 <span class="math-symbol">ax + by = c</span> の整数解。ユークリッドの互除法の逆のプロセスで特殊解を一つ見つけ、一般解を導く。</p>
+            <div class="proof-box">
+                <code>
+                [ax + by = c の一般解]
+                特殊解 (x0, y0) が見つかれば、a(x-x0) + b(y-y0) = 0
+                a(x-x0) = -b(y-y0)
+                aとbの最大公約数をgとすると、a=ga', b=gb' (a', b'は互いに素)
+                a'(x-x0) = -b'(y-y0)
+                a'とb'は互いに素なので、x-x0 は b' の倍数。
+                x-x0 = b'k (kは整数) → x = x0 + (b/g)k
+                y-y0 = -a'k → y = y0 - (a/g)k
                 </code>
             </div>
         </section>
 
         <section id="math2">
             <h2>数学II</h2>
-            
+
             <h3>様々な式</h3>
-            <p>分数式、恒等式、等式・不等式の証明、高次方程式、複素数と方程式について学びます。</p>
+            <h4>高次方程式</h4>
+            <p>三次方程式、四次方程式の解法。因数定理、組立除法を利用し、複素数解も視野に入れる。特に、解と係数の関係は重要。</p>
             <div class="equation">
                 <code>
-                複素数: z = a + bi (i は虚数単位)
+                ax^3+bx^2+cx+d=0 の解を α, β, γ とすると、
+                α+β+γ = -b/a
+                αβ+βγ+γα = c/a
+                αβγ = -d/a
                 </code>
             </div>
             
+            <h4>恒等式と等式の証明</h4>
+            <p>恒等式は「すべての変数に対して成り立つ等式」。係数比較法や数値代入法で解く。等式の証明は「左辺を変形して右辺にする」「両辺を引いて0にする」「両辺を変形して同じ式にする」など。</p>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                恒等式では「係数比較法」と「数値代入法」がある。
+                数値代入法は計算が楽になることが多いが、その数値でしか成り立たない可能性がないか注意が必要（問題の文脈をよく読む）。
+                </code>
+            </div>
+
+            <h4>不等式の証明</h4>
+            <p>相加平均・相乗平均の不等式 <span class="math-symbol">(a+b)/2 ≧ √ab</span>（<span class="math-symbol">a, b > 0</span>）とその等号成立条件。<span class="math-symbol">(左辺) - (右辺) ≧ 0</span> を示すのが基本。シュワルツの不等式など、より高度な不等式も。</p>
+            <div class="equation">
+                <code>
+                [コーシー・シュワルツの不等式]
+                (a^2 + b^2)(x^2 + y^2) ≧ (ax + by)^2
+                等号成立は a:b = x:y のとき
+                </code>
+            </div>
+
             <h3>図形と方程式</h3>
-            <p>点と直線、円の方程式、軌跡と領域について学びます。</p>
+            <h4>点と直線</h4>
+            <p>2点間の距離、内分点・外分点の公式。直線の傾き、方程式の種類（標準形、一般形、切片形）。2直線の平行・垂直条件。点と直線の距離の公式は必須。</p>
             <div class="equation">
                 <code>
-                円の方程式: (x-a)^2 + (y-b)^2 = r^2
-                点と直線の距離: |Ax0 + By0 + C| / √(A^2 + B^2)
+                点(x0, y0) と直線 Ax+By+C=0 の距離 d:
+                d = |Ax0 + By0 + C| / √(A^2 + B^2)
                 </code>
             </div>
             
+            <h4>円の方程式</h4>
+            <p>標準形 <span class="math-symbol">(x-a)^2 + (y-b)^2 = r^2</span> と一般形。円と直線の位置関係（交点、接線、交わらない）。判別式や点と直線の距離で考える。</p>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                円と直線の問題は、判別式を使うよりも「円の中心から直線までの距離と半径の比較」が計算が楽になることが多い。
+                </code>
+            </div>
+
+            <h4>軌跡と領域</h4>
+            <p>軌跡は「動点<span class="math-symbol">(x, y)</span>が満たす条件を式で表す」ことを意味する。領域は不等式で表される範囲。連立不等式で表される領域の図示。領域における最大・最小問題は線形計画法の基礎。</p>
+            <div class="example-box">
+                <code>
+                [例] 2点A(0,0), B(4,0) からの距離の比が 1:3 である点Pの軌跡を求めよ。
+                P(x,y) とすると PA:PB = 1:3
+                3PA = PB → 9PA^2 = PB^2
+                9(x^2 + y^2) = (x-4)^2 + y^2
+                これを整理すると、円の方程式になる (アポロニウスの円)。
+                </code>
+            </div>
+
             <h3>指数関数・対数関数</h3>
-            <p>指数法則、指数関数、対数関数とその性質、グラフについて学びます。</p>
+            <h4>指数法則の拡張</h4>
+            <p>指数法則を整数、有理数、実数へと拡張。特に、<span class="math-symbol">a^0=1, a^(-n)=1/a^n, a^(m/n) = n√a^m</span> の定義。</p>
+            
+            <h4>指数関数と対数関数</h4>
+            <p><span class="math-symbol">y=a^x</span> と <span class="math-symbol">y=log_a x</span> は逆関数の関係。グラフの特徴、底の変換公式。対数計算の習熟。</p>
             <div class="equation">
                 <code>
-                log_a M = p  ⇔  M = a^p
-                log_a (MN) = log_a M + log_a N
+                底の変換公式: log_a M = log_b M / log_b a
+                </code>
+            </div>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                対数の真数条件 (真数>0) と底の条件 (底>0, 底≠1) を常に意識する。
+                特に、文字を含む対数不等式ではこれらを最初に確認する。
+                </code>
+            </div>
+
+            <h4>常用対数</h4>
+            <p>底が10の対数。桁数の問題や最高位の数字を求める問題に応用。近似値を利用した不等式評価。</p>
+            <div class="example-box">
+                <code>
+                [例] 2^100 は何桁の数か。log10 2 = 0.3010 とする。
+                log10 (2^100) = 100 * log10 2 = 100 * 0.3010 = 30.10
+                これは 30 <= log10 (2^100) < 31 を意味する。
+                よって 10^30 <= 2^100 < 10^31
+                2^100 は 31桁の数である。
+                </code>
+            </div>
+
+            <h3>微分法と積分法</h3>
+            <h4>微分係数と導関数</h4>
+            <p>定義 <span class="math-symbol">f'(x) = lim(h→0) {f(x+h) - f(x)} / h</span>。積の微分、商の微分、合成関数の微分。</p>
+            <div class="equation">
+                <code>
+                (fg)' = f'g + fg'
+                (f/g)' = (f'g - fg') / g^2
                 </code>
             </div>
             
-            <h3>微分法と積分法</h3>
-            <p>導関数、接線の方程式、関数の増減、極値、定積分、不定積分、面積の計算について学びます。</p>
+            <h4>接線の方程式と関数の増減</h4>
+            <p>接線の傾きが導関数であること。<span class="math-symbol">f'(x)</span>の符号で関数の増減を調べる。極大・極小値、最大・最小値。</p>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                微分した結果、f'(x)=0 となる x の値だけでなく、その前後での f'(x) の符号変化に注目する。
+                グラフを丁寧に描き、極値と定義域の端点での値を比較して最大・最小値を決定する。
+                </code>
+            </div>
+
+            <h4>不定積分と定積分</h4>
+            <p>微分の逆演算が積分。不定積分は積分定数<span class="math-symbol">C</span>を忘れない。<span class="math-symbol">∫f(x)dx</span>。定積分は面積、体積などに応用。区分求積法は定積分の定義。</p>
             <div class="equation">
                 <code>
-                f'(x) = lim(h→0) {f(x+h) - f(x)} / h
-                ∫ x^n dx = (1/(n+1)) * x^(n+1) + C
+                ∫[a,b] f(x) dx = F(b) - F(a) (F'(x) = f(x))
+                </code>
+            </div>
+
+            <h4>面積と体積</h4>
+            <p>曲線とx軸、または曲線と曲線で囲まれた領域の面積。偶関数・奇関数の性質を利用した計算簡略化。回転体の体積（バウムクーヘン積分、パップス・ギルダンの定理の理解）。</p>
+            <div class="example-box">
+                <code>
+                [例] 曲線 y=x^2 と y=x+2 で囲まれた面積。
+                交点を求めると x^2 = x+2 → x^2-x-2=0 → (x-2)(x+1)=0
+                x = -1, 2
+                面積 = ∫[-1,2] ((x+2) - x^2) dx
+                     = [(-1/3)x^3 + (1/2)x^2 + 2x] [-1,2]
+                     = ((-8/3)+2+4) - ((1/3)+(1/2)-2) = (10/3) - (-7/6) = 20/6 + 7/6 = 27/6 = 9/2
                 </code>
             </div>
         </section>
 
         <section id="mathb">
             <h2>数学B</h2>
-            
-            <h3>数列</h3>
-            <p>等差数列、等比数列、漸化式、数学的帰納法、Σ（シグマ）記号による和の計算について学びます。</p>
-            <div class="equation">
-                <code>
-                等差数列の一般項: an = a1 + (n-1)d
-                等比数列の一般項: an = a1 * r^(n-1)
-                </code>
-            </div>
-            
-            <h3>ベクトル</h3>
-            <p>ベクトルの成分表示、内積、外積、位置ベクトル、直線や平面の方程式への応用を学びます。</p>
-            <div class="equation">
-                <code>
-                ベクトルa = (ax, ay), ベクトルb = (bx, by)
-                内積: a・b = |a||b|cosθ = ax*bx + ay*by
-                </code>
-            </div>
-            
-            <h3>確率分布と統計的な推測</h3>
-            <p>二項分布、正規分布などの確率分布、期待値、分散、標本調査、推定、仮説検定の基礎を学びます。</p>
-            <div class="equation">
-                <code>
-                期待値 E(X) = Σ xi * P(X=xi)
-                </code>
-            </div>
-        </section>
-    </div>
 
-    <footer>
-        <p>&copy; 2023 高校数学解説サイト. All rights reserved. | <a href="#top">ページのトップへ</a></p>
-    </footer>
-</body>
-</html>
+            <h3>数列</h3>
+            <h4>等差数列と等比数列</h4>
+            <p>一般項と和の公式。特に等比数列の和の公式は<span class="math-symbol">r=1</span>の場合分けに注意。無限等比級数の収束条件と和。</p>
+            <div class="equation">
+                <code>
+                等差数列の和: Sn = n(a1 + an) / 2 = n(2a1 + (n-1)d) / 2
+                等比数列の和: Sn = a1(r^n - 1) / (r-1) (r≠1), Sn = na1 (r=1)
+                </code>
+            </div>
+            
+            <h4>漸化式</h4>
+            <p>隣接2項間、3項間漸化式。特性方程式を利用した解法。数列の極限（<span class="math-symbol">n→∞</span>）も意識する。</p>
+            <div class="proof-box">
+                <code>
+                [an+1 = pan + q 型の漸化式]
+                特性方程式: α = pα + q
+                これを解いて α を求める。
+                an+1 - α = p(an - α) と変形できる。
+                数列 {an - α} が公比pの等比数列になる。
+                </code>
+            </div>
+
+            <h4>数学的帰納法</h4>
+            <p>自然数<span class="math-symbol">n</span>に関する命題の証明手法。
+                <ol>
+                    <li><span class="math-symbol">n=1</span> (または最小の自然数) で成り立つことを示す。</li>
+                    <li><span class="math-symbol">n=k</span> で成り立つと仮定し、<span class="math-symbol">n=k+1</span> でも成り立つことを示す。</li>
+                </ol>
+                この2ステップで証明が完了する。</p>
+            <div class="point-box">
+                <code>
+                [思考のポイント]
+                帰納法の仮定 (n=kで成り立つこと) を「必ず利用する」ことが重要。
+                不等式の証明では、仮定を利用するために式変形を工夫する必要がある。
+                </code>
+            </div>
+
+            <h3>ベクトル</h3>
+            <h4>平面ベクトル・空間ベクトル</h4>
+            <p>ベクトルの加法、減法、実数倍。成分表示と幾何的表示。単位ベクトル。内積の定義と性質。垂直条件、平行条件。</p>
+            <div class="equation">
+                <code>
+                内積: ベクトルa・ベクトルb = |a||
